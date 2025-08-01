@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.4'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.sports'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+// Spring Boot starter for RabbitMQ (AMQP)
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+    // Spring Boot starter for WebSocket support (with STOMP messaging)
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    // Spring Boot starter for web (REST + general web support)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Optional: For JSON serialization/deserialization
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    // Testing dependencies (optional)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
